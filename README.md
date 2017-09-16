@@ -37,10 +37,10 @@ The `/g` flag must be used with the regex or an exception is thrown.
 ## Usage
 
 ```javascript
-import {matches} from 'util.matches';
+import {Match, matches} from 'util.matches';
 
 const data: string = 'a b c a b c a b c';
-const res: IMatch[] = matches(data, /a/g);
+const res: Match[] = matches(data, /a/g);
 
 // res[0].text = 'a'
 // res[0].start = 0
