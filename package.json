@@ -1,6 +1,6 @@
 {
   "name": "util.matches",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Searches a string for N instances of a given regex.",
   "private": false,
@@ -27,7 +27,7 @@
     "nyc": "^11.2.1",
     "tslint": "^5.7.0",
     "typescript": "^2.5.2"
-	},
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -47,8 +47,8 @@
     "cleanup": [
       "index.d.ts",
       "index.js",
-			"test.d.ts",
-			"test.js"
+      "test.d.ts",
+      "test.js"
     ]
   }
 }
