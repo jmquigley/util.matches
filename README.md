@@ -23,10 +23,12 @@ To build the app and run all tests:
 $ yarn run all
 ```
 
+
 ## Overview
 
 The `matches` function will search through the given string for N occurrences of the given regex string.  It will return an array of `Match` objects; one entry for each instance found.  The `Match` structure contains the following values:
 
+- `groupIndex` - When grouping symbols are used within a regex this structure will contain the index location within the matched string where that group starts.  The index location is computed for each group.
 - `result` - The return value from the Javascript regex [exec()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec).
 - `text` - the string that was matched by the regex
 - `start` - the absolute starting index from the front of the string being searched.
@@ -34,8 +36,10 @@ The `matches` function will search through the given string for N occurrences of
 
 The `/g` flag must be used with the regex or an exception is thrown.
 
+
 ## Usage
 
+#### Simple match
 ```javascript
 import {Match, matches} from 'util.matches';
 
@@ -44,9 +48,32 @@ const res: Match[] = matches(data, /a/g);
 
 // res[0].text = 'a'
 // res[0].start = 0
-// res[0].end = 1;
+// res[0].end = 0;
 
 // res[1].text = 'a'
 // res[1].start = 6
-// res[1].end = 7
+// res[1].end = 6
+```
+
+#### Match with grouping indicies
+
+```javascript
+import {Match, matches} from 'util.matches';
+
+const data: string = 'the date range is 01/02/2016 to 09/25/2017 blah';
+const res: Match[] = matches(data, /(\d{2})\/(\d{2})\/(\d{4})/g);
+
+// res[0].text = '01/02/2016');
+// res[0].start = 18);
+// res[0].end = 27);
+// res[0].groupIndex[0] = 0); // 01
+// res[0].groupIndex[1] = 3); // 02
+// res[0].groupIndex[2] = 6); // 2016
+
+// res[1].text = '09/25/2017');
+// res[1].start = 32);
+// res[1].end = 41);
+// res[1].groupIndex[0] = 0); // 09
+// res[1].groupIndex[1] = 3); // 25
+// res[1].groupIndex[2] = 6); // 2017
 ```
