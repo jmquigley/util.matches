@@ -23,34 +23,43 @@ export function matches(text: string, re: RegExp): Match[] {
 
 	const l: Match[] = [];
 
-	if (!re.global) {
-		throw new Error('The regex must use th /g flag');
-	}
-
 	if (!text) {
 		return l;
 	}
 
 	let match: any;
-	while ((match = re.exec(text)) != null) {
+	if (re.global) {
+		while ((match = re.exec(text)) != null) {
 
-		// When the regex has grouping modifiers, then this will compute
-		// The offset within the matched string (not the whole string)
-		// of the start location index for each grouping
-		const groupIndex: number[] = [];
-		if (match.length > 1) {
-			for (let idx = 1; idx < match.length; idx++) {
-				groupIndex.push(match[0].indexOf(match[idx]));
+			// When the regex has grouping modifiers, then this will compute
+			// The offset within the matched string (not the whole string)
+			// of the start location index for each grouping
+			const groupIndex: number[] = [];
+			if (match.length > 1) {
+				for (let idx = 1; idx < match.length; idx++) {
+					groupIndex.push(match[0].indexOf(match[idx]));
+				}
 			}
-		}
 
-		l.push({
-			groupIndex: groupIndex,
-			result: match,
-			text: match[0],
-			start: match.index,
-			end: match.index + match[0].length - 1
-		});
+			l.push({
+				groupIndex: groupIndex,
+				result: match,
+				text: match[0],
+				start: match.index,
+				end: match.index + match[0].length - 1
+			});
+		}
+	} else {
+		match = text.match(re);
+		if (match) {
+			l.push({
+				groupIndex: [],
+				result: match,
+				text: match[0],
+				start: match.index,
+				end: match.index + match[0].length - 1
+			});
+		}
 	}
 
 	return l;

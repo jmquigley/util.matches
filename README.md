@@ -34,8 +34,6 @@ The `matches` function will search through the given string for N occurrences of
 - `start` - the absolute starting index from the front of the string being searched.
 - `end` - the absolute ending index from the from front of the string being searched.
 
-The `/g` flag must be used with the regex or an exception is thrown.
-
 
 ## Usage
 
