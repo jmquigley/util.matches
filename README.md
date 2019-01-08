@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/jmquigley/util.matches.svg?branch=master)](https://travis-ci.org/jmquigley/util.matches)
 [![tslint code style](https://img.shields.io/badge/code_style-TSlint-5ed9c7.svg)](https://palantir.github.io/tslint/)
-[![Test Runner](https://img.shields.io/badge/testing-ava-blue.svg)](https://github.com/avajs/ava)
+[![Test Runner](https://img.shields.io/badge/testing-jest-blue.svg)](https://facebook.github.io/jest/)
 [![NPM](https://img.shields.io/npm/v/util.matches.svg)](https://www.npmjs.com/package/util.matches)
 [![Coverage Status](https://coveralls.io/repos/github/jmquigley/util.matches/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.matches?branch=master)
 
