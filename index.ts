@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 export interface Match {
 	groupIndex: number[];
@@ -20,7 +20,6 @@ export interface Match {
  * `text`, `start` index, `end` index within the original string.
  */
 export function matches(text: string, re: RegExp): Match[] {
-
 	const l: Match[] = [];
 
 	if (!text) {
@@ -30,7 +29,6 @@ export function matches(text: string, re: RegExp): Match[] {
 	let match: any;
 	if (re.global) {
 		while ((match = re.exec(text)) != null) {
-
 			// When the regex has grouping modifiers, then this will compute
 			// The offset within the matched string (not the whole string)
 			// of the start location index for each grouping
