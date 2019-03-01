@@ -1,6 +1,6 @@
 {
 	"name": "util.matches",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Searches a string for N instances of a given regex.",
 	"private": false,
