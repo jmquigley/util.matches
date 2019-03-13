@@ -1,6 +1,6 @@
 {
 	"name": "util.matches",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Searches a string for N instances of a given regex.",
 	"private": false,
@@ -29,21 +29,21 @@
 		"@babel/preset-env": "^7.3.4",
 		"@babel/preset-typescript": "^7.3.3",
 		"@babel/runtime": "^7.3.4",
-		"@types/jest": "^24.0.9",
-		"@types/node": "^11.10.5",
+		"@types/jest": "^24.0.11",
+		"@types/node": "^11.11.3",
 		"babel-minify": "^0.5.0",
 		"babel-preset-minify": "^0.5.0",
 		"coveralls": "^3.0.3",
 		"debug": "^4.1.1",
-		"jest": "^24.3.1",
+		"jest": "^24.5.0",
 		"prettier": "^1.16.4",
-		"tslint": "^5.13.1",
+		"tslint": "^5.14.0",
 		"tslint-config-prettier": "^1.18.0",
 		"typescript": "^3.3.3333",
-		"util.pkgwrap": "^0.0.104"
+		"util.pkgwrap": "^0.0.105"
 	},
 	"scripts": {
-		"all": "yarn install && yarn build && yarn test",
+		"all": "yarn install && yarn build && yarn test && yarn manifest",
 		"build": "yarn clean && yarn lint && yarn prettier && yarn build:es && yarn build:umd",
 		"build:es": "tsc -p . && minify index.js --out-file index.es.min.js",
 		"build:umd": "babel index.js --out-file index.umd.min.js",
@@ -51,7 +51,7 @@
 		"clean:dist": "yarn clean && rimraf node_modules/ yarn.lock",
 		"coverage": "pkgwrap --coverage --jest",
 		"lint": "pkgwrap --lint",
-		"prepublishOnly": "yarn run all",
+		"manifest": "npm pack --dry-run",
 		"prettier": "prettier --write \"**/*.{ts,tsx,js,json,yaml,yml,css}\"",
 		"test": "jest"
 	}
