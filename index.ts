@@ -1,5 +1,3 @@
-"use strict";
-
 export interface Match {
 	groupIndex: number[];
 	result: any;

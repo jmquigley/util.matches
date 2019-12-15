@@ -1,5 +1,3 @@
-"use strict";
-
 import {Match, matches} from "./index";
 
 // const debug = require('debug')('test');
